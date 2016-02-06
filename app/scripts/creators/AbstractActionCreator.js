@@ -16,7 +16,6 @@ export default class AbstractActionCreator {
    * @param {string} actionName Action name
    * @param {Object} [data = {}] Action data
    * @returns {AbstractActionCreator}
-   * @fixme Get rid of data modification
    */
   dispatch(actionName, data = {}) {
     dispatcher.dispatch({

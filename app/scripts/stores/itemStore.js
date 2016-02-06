@@ -15,20 +15,37 @@ export default class ItemStore extends AbstractStore {
    */
   getActionListeners() {
     return {
-      'items:loadStart': data => {
+      /**
+       * Load start
+       */
+      'items:loadStart': () => {
         this
           .set('loading', true)
+          .set('error', null)
+          .set('items', [])
           .trigger('change');
       },
-      'items:loadSuccess': data => {
+      /**
+       * Load success
+       *
+       * @param {array} items Items
+       */
+      'items:loadSuccess': items => {
         this
           .set('loading', false)
-          .set('items', data)
+          .set('error', null)
+          .set('items', items)
           .trigger('change');
       },
-      'items:loadError': data => {
+      /**
+       * Load error
+       *
+       * @param {Error} error Error
+       */
+      'items:loadError': error => {
         this
           .reset()
+          .set('error', error)
           .trigger('change');
       },
     };

@@ -50,6 +50,8 @@ class Home extends AbstractComponent {
    * @inheritdoc
    */
   componentDidMount() {
+    super.componentDidMount();
+    
     ItemActionCreator.loadItems();
   }
 
