@@ -16,7 +16,7 @@
     "start": "gulp clean && gulp",
     "test": "jest"
   },
-  "author": "@moklick <mo@webkid.io>",
+  "author": "@allx <allx@mail.ru>",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.1.2",
@@ -33,7 +33,6 @@
     "gulp-load-plugins": "^1.1.0",
     "gulp-sass": "^2.2.0",
     "gulp-size": "^2.0.0",
-    "gulp-stylus": "^2.1.0",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
     "gulp-watch": "^4.3.5",
@@ -48,10 +47,10 @@
   "dependencies": {
     "flux": "^2.1.1",
     "history": "^1.13.0",
+    "lodash": "^4.2.1",
     "react": "^0.14.2",
     "react-dom": "^0.14.2",
-    "react-router": "^1.0.0",
-    "reflux": "^0.3.0"
+    "react-router": "^1.0.0"
   },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",

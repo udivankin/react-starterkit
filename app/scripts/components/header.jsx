@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Header = (props) => {
   return (
     <header className="clearfix">
-      Application Name
+      React starter kit
       <nav className="clearfix">
         <div className="nav-item">
           <Link to="home">Home</Link>

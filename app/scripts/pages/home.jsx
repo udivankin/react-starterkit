@@ -1,35 +1,65 @@
 import React from 'react';
-import ItemList from '../components/itemList.jsx';
-import ItemStore from '../stores/itemStore';
-import ItemActions from '../actions/itemActions';
+import AbstractComponent from '../components/AbstractComponent.jsx';
+import ItemList from '../components/ItemList.jsx';
+import ItemStore from '../stores/ItemStore';
+import ItemActionCreator from '../creators/ItemActionCreator';
 
-class Home extends React.Component {
-  
+class Home extends AbstractComponent {
+  /**
+   * @inheritdoc
+   */
   constructor(props){
     super(props);
+
     this.state = {
+      /**
+      * Items
+      */
       items : [],
+      /**
+      * Loading state
+      */
       loading: false
     };
   }
 
+  /**
+   * @inheritdoc
+   */
+  getStoresConfig() {
+    return [
+      {
+        store: ItemStore,
+        eventName: 'change',
+        callback: this.storeChangeHandler.bind(this),
+      },
+    ];
+  }
+
+  /**
+   * Items store change handler
+   */
+  storeChangeHandler() {
+    this.setState({
+      items: ItemStore.get('items'),
+      loading: ItemStore.get('loading'),
+    });
+  }
+
+  /**
+   * @inheritdoc
+   */
   componentDidMount() {
-    this.unsubscribe = ItemStore.listen(this.onStatusChange.bind(this));
-    ItemActions.loadItems();
+    ItemActionCreator.loadItems();
   }
 
-  componentWillUnmount() {
-    this.unsubscribe();
-  }
-
-  onStatusChange(state) {
-    this.setState(state);
-  }
-
+  /**
+   * @inheritdoc
+   */
   render() {
     return (
       <div>
-        <h1>Home Area</h1>
+        <h1>Home Page</h1>
         <ItemList { ...this.state } />
       </div>
     );

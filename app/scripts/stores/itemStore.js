@@ -1,35 +1,40 @@
-import Reflux from 'reflux';
-import ItemActions from '../actions/itemActions';
+/**
+ * ItemStore example
+ *
+ * @exports ItemStore singleton
+ */
 
-let ItemStore = Reflux.createStore({
-  listenables: ItemActions,
-  
-  init() {
-    this.items = [];
-  },
+import AbstractStore from '../stores/AbstractStore';
 
-  loadItems() {
-    this.trigger({ 
-      loading: true
-    });
-  },
-
-  loadItemsCompleted(items) {
-    this.items = items;
-
-    this.trigger({ 
-      items : this.items,
-      loading: false
-    });
-  },
-
-  loadItemsFailed(error) {
-    this.trigger({ 
-      error : error,
-      loading: false
-    });
+/**
+ * @inheritdoc
+ */
+export default class ItemStore extends AbstractStore {
+  /**
+   * @inheritdoc
+   */
+  getActionListeners() {
+    return {
+      'items:loadStart': data => {
+        this
+          .set('loading', true)
+          .trigger('change');
+      },
+      'items:loadSuccess': data => {
+        this
+          .set('loading', false)
+          .set('items', data)
+          .trigger('change');
+      },
+      'items:loadError': data => {
+        this
+          .reset()
+          .trigger('change');
+      },
+    };
   }
+}
 
-});
+const instance = new ItemStore();
 
-export default ItemStore;
+export default instance;
