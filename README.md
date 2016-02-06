@@ -1,6 +1,6 @@
 # React Starterkit
 
-This react starter kit provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [stylus](https://github.com/LearnBoost/stylus) and [webpack](https://github.com/webpack/webpack). Data flow is made with [Flux](https://github.com/facebook/flux) library and the routing is managed with the [React-Router](https://github.com/rackt/react-router).
+This react starter kit provides a prepared development environment based on [gulp](https://github.com/gulpjs/gulp), [SASS](http://sass-lang.com/) and [webpack](https://github.com/webpack/webpack). Data flow is made using [Flux](https://github.com/facebook/flux) dispatcher, the routing is managed with the [React-Router](https://github.com/rackt/react-router).
 
 ####[Demo](http://udivankin.github.io/react-starterkit)
 This starter kit does not include some fancy UI stuff but is a lightweight starting point for your next react app.
@@ -62,12 +62,12 @@ We are working with the webpack [babel loader](https://github.com/babel/babel-lo
 
 ## CSS
 
-CSS entry file: `app/stylus/main.styl`<br />
+CSS entry file: `app/sass/main.scss`<br />
 
-**Stylus**
+**SASS**
 
-As you can see we are using stylus to preprocess our .styl files. If you didn't work with a css preprocessor before the [stylus page](http://learnboost.github.io/stylus/) is a good starting point to get to know what stylus can do for you.<br /><br />
-If you want to use third-party CSS you just include it via `@import 'path/to/your/third-party-styles.css'` at the top of the main.styl file.
+As you can see we are using SASS to preprocess our .scss files. If you didn't work with a css preprocessor before the [sass page](http://sass-lang.com/) is a good starting point to get to know what SASS can do for you.<br /><br />
+If you want to use third-party CSS you just include it via `@import 'path/to/your/third-party-styles.css'` at the top of the main.scss file.
 
 
 ## Webpack Hints
