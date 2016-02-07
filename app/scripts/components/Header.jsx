@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 const Header = (props) => {
   return (
     <header className="clearfix">
-      React starter kit
+      Minimal React starter kit
       <nav className="clearfix">
         <div className="nav-item">
           <Link to="home">Home</Link>
